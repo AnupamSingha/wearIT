@@ -1,0 +1,59 @@
+<%- include('./partials/header') %>
+<% if(success.length > 0) { %>
+    <div class="absolute top-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= success %>
+        </span>
+    </div>
+<% } %>
+
+<div class="w-full min-h-screen flex flex-col lg:flex-row items-start px-5 lg:px-20 py-10 lg:py-20 gap-5 lg:gap-0">
+    <!-- Sidebar Section -->
+    <div class="w-full lg:w-[25%] flex flex-col items-start">
+        <div class="flex items-center gap-2">
+            <h3 class="text-lg font-semibold">Sort by:</h3>
+            <form action="/shop">
+                <select class="border border-gray-300 px-2 py-1 rounded-md" name="sortby" id="">
+                    <option value="">Popular</option>
+                    <option value="">Newest</option>
+                </select>
+            </form>
+        </div>
+        <div class="flex flex-col mt-10 lg:mt-20">
+            <a class="block mb-2 text-blue-600 hover:underline" href="">New Collection</a>
+            <a class="block mb-2 text-blue-600 hover:underline" href="">All Products</a>
+            <a class="block mb-2 text-blue-600 hover:underline" href="">Discounted Products</a>
+            <a class="block mb-2 text-blue-600 hover:underline" href="/owners/admin">Admin</a>
+        </div>
+        <div class="mt-10 lg:mt-32">
+            <h4 class="mb-2 font-semibold">Filter by:</h4>
+            <a class="block mb-2 text-blue-600 hover:underline" href="">Availability</a>
+            <a class="block mb-2 text-blue-600 hover:underline" href="">Discount</a>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="w-full lg:w-[75%] flex flex-wrap gap-5">
+        <% products.forEach(function(product) { %>
+        <div class="w-full sm:w-[48%] md:w-[30%] bg-gray-100 rounded-md shadow-lg">
+            <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>] rounded-t-md">
+                <img class="h-48 object-contain" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>">
+            </div>
+            <div class="flex justify-between bg-[<%= product.panelcolor %>] items-center px-4 py-3 text-[<%= product.textcolor %>] rounded-b-md">
+                <div>
+                    <h3 class="font-semibold text-lg">
+                        <%= product.name %>
+                    </h3>
+                    <h4 class="text-sm">
+                        ₹ <%= product.price %>
+                    </h4>
+                </div>
+                <a class="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-gray-200" href="/addtocart/<%=product._id %>"">
+                    <i class="ri-add-line text-lg"></i>
+                </a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<%- include('./partials/footer') %>

@@ -1,0 +1,49 @@
+<%- include('./partials/header') %>
+
+<div class="w-full min-h-screen bg-gray-50 flex justify-center py-10">
+    <!-- Account Section -->
+    <div class="bg-white shadow-lg w-full max-w-4xl rounded-lg p-8">
+        <!-- Account Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">My Account</h2>
+            <p class="text-gray-500 mt-2">Manage your personal information and settings</p>
+        </div>
+
+        <!-- Account Info -->
+        <div class="bg-gray-100 shadow-md w-full rounded-lg p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-6">Account Details</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Full Name -->
+                <div class="flex justify-between">
+                    <p class="text-gray-600">Full Name:</p>
+                    <p class="text-gray-800 font-medium"><%= user.fullname %></p>
+                </div>
+                <!-- Email -->
+                <div class="flex justify-between">
+                    <p class="text-gray-600">Email:</p>
+                    <p class="text-gray-800 font-medium"><%= user.email %></p>
+                </div>
+                <!-- Join Date (Optional) -->
+                <!--<div class="flex justify-between">
+                    <p class="text-gray-600">Joined On</p>
+                    <p class="text-gray-800 font-medium"><%= new Date(user.createdAt).toLocaleDateString() %></p>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Account Actions (optional) -->
+        <!--<div class="bg-white shadow-md w-full rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-700 mb-6">Actions</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="/orders" class="w-full text-center bg-blue-500 text-white py-3 px-5 rounded-md hover:bg-blue-600 transition">
+                    View My Orders
+                </a>
+                <a href="/users/settings" class="w-full text-center bg-yellow-500 text-white py-3 px-5 rounded-md hover:bg-yellow-600 transition">
+                    Edit Account Settings
+                </a>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,50 @@
+<%- include('./partials/header') %>
+<div class="w-full min-h-screen flex flex-col items-center px-5 lg:px-20 py-10 lg:py-20">
+    <h2 class="text-2xl font-semibold mb-10">Checkout</h2>
+    <form action="/checkout" method="POST" class="w-full max-w-lg space-y-5">
+        <!-- Address Section -->
+        <div class="space-y-2">
+            <label for="address" class="block text-sm lg:text-base">Full Address</label>
+            <textarea id="address" name="address" rows="4" class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
+        </div>
+        <div class="space-y-2">
+            <label for="city" class="block text-sm lg:text-base">City</label>
+            <input type="text" id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="space-y-2">
+            <label for="postalCode" class="block text-sm lg:text-base">Postal Code</label>
+            <input type="text" id="postalCode" name="postalCode" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="space-y-2">
+            <label for="contact" class="block text-sm lg:text-base">Contact Number</label>
+            <input type="text" id="contact" name="contact" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Payment Section -->
+        <h2 class="text-2xl font-semibold mt-10 mb-5">Enter Payment Details</h2>
+        <div class="space-y-2">
+            <label for="paymentMethod" class="block text-sm lg:text-base">Payment Method</label>
+            <select id="paymentMethod" name="paymentMethod" class="w-full p-3 border border-gray-300 rounded-md" required>
+                <option value="creditCard">Credit Card</option>
+                <option value="debitCard">Debit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+        </div>
+        <div class="space-y-2">
+            <label for="cardNumber" class="block text-sm lg:text-base">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="space-y-2">
+            <label for="expiryDate" class="block text-sm lg:text-base">Expiry Date</label>
+            <input type="text" id="expiryDate" name="expiryDate" class="w-full p-3 border border-gray-300 rounded-md" placeholder="MM/YY" required>
+        </div>
+        <div class="space-y-2">
+            <label for="cvv" class="block text-sm lg:text-base">CVV</label>
+            <input type="text" id="cvv" name="cvv" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-md mt-5 w-full">Confirm Order</button>
+    </form>
+</div>
+<%- include('./partials/footer') %>

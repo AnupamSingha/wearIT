@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUPAM</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-['helvetica_now_display']">
+    <nav class="w-full bg-white shadow-md flex justify-between items-center px-5 py-3 relative">
+        <!-- Logo Section -->
+        <div>
+            <h3 class="text-xl font-semibold">weatIT</h3>
+        </div>
+
+        <!-- Hamburger Menu Button (Visible on all screens) -->
+        <button id="menu-toggle" class="text-2xl lg:hidden">
+            <i class="ri-menu-line"></i>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+        <% if (loggedin) { %>
+        <div id="menu" class="hidden absolute top-14 right-5 bg-white shadow-md rounded-lg w-40 lg:static lg:flex lg:flex-row lg:bg-transparent lg:shadow-none lg:w-auto lg:items-center">
+            <a href="/shop" class="block px-4 py-2 text-lg hover:bg-blue-100 hover:text-blue-600 lg:hover:bg-transparent lg:hover:text-blue-600">Shop</a>
+            <a href="/cart" class="block px-4 py-2 text-lg hover:bg-blue-100 hover:text-blue-600 lg:hover:bg-transparent lg:hover:text-blue-600">Cart</a>
+            <a href="/users/myaccount" class="block px-4 py-2 text-lg hover:bg-blue-100 hover:text-blue-600 lg:hover:bg-transparent lg:hover:text-blue-600">My Account</a>
+            <a href="/users/logout" class="block px-4 py-2 text-lg text-red-600 hover:bg-red-100 hover:text-red-800 lg:hover:bg-transparent lg:hover:text-red-800">Logout</a>
+        </div>
+        <% } %>
+    </nav>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        // Toggle menu visibility
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
